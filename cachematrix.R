@@ -3,12 +3,16 @@
 
 ## Write a short comment describing this function
 
-makeCacheMatrix <- function(mtx = matrix()) {
+makeCacheMatrix <- function(mtrx = matrix()) {
   inverse <- NULL
   set <- function(x) {
-    mtx <<- x;
+    mtrx <<- x;
     inverse <<- NULL;
   }
+  get <- function() return(mtrx);
+  setinv <- function(inv) inverse <<- inv;
+  getinv <- function() return(inverse);
+  return(list(set = set, get = get, setinv = setinv, getinv = getinv))
 }
 
 
@@ -22,3 +26,4 @@ cacheSolve <- function(x, ...) {
     return(inverse)
   }
 }
+
